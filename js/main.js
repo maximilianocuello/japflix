@@ -1,5 +1,8 @@
 let pelis = undefined;
 let busqueda = undefined;
+let pelisFilter = undefined;
+
+/*CARGANDO DATA  */
 window.addEventListener('DOMContentLoaded', function loadScreen(){
   
   getJSONDATA(url).then(function(resultObj){
@@ -9,17 +12,20 @@ window.addEventListener('DOMContentLoaded', function loadScreen(){
     }}
     )
   })
-  function filterSearch(search) {
-    return pelis.filter((element)=>{
+
+
+  /*function filterSearch(search) {
+  })}*/
+  document.getElementById('btnBuscar').addEventListener('click', (e)=>{
+    e.preventDefault;
+    busqueda = document.getElementById('inputBuscar').value;
+    
+    pelisFilter = pelis.filter(({title, overview, tagline})=>{
       debugger
-      element.title.toLowerCase().indexOf(search.toLowerCase()) > -1
-      console.log(element.title);
-    })}
-    document.getElementById('btnBuscar').addEventListener('click', (e)=>{
-      e.preventDefault;
-       busqueda = document.getElementById('inputBuscar').value;
+      return title.toLowerCase().indexOf(busqueda.toLowerCase()) > -1;
+     
       
-      filterSearch(busqueda)
-    })
+     /* filterSearch(busqueda)*/
+    })})
 /*  HACER OTRO FILTER PARA QUE APAREZCAN PELICULAS SIMILARES */
 /*  HACER UN SHOW PELIS */ 
