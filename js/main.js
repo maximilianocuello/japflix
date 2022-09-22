@@ -4,6 +4,7 @@ let pelisFilter = undefined;
 
 function showData(arr){
  let htmlContentToAppend = '';
+ /* ME DA ERROR AL INICIAR LA FUNCION ONCLIC EN LA DIV  */
  for (let peli of arr) {
   
    htmlContentToAppend += `<li>
