@@ -17,9 +17,15 @@ window.addEventListener('DOMContentLoaded', function loadScreen(){
   function showData(arr){
     debugger
    let htmlContentToAppend = '';
-   for (let {title} of arr) {
+   for (let {title, tagline, vote_average} of arr) {
     
-     htmlContentToAppend += `<li>${title}</li>`;
+     htmlContentToAppend += `<li>
+      <div>
+        <h1 class="text-white">${title}</h1>
+        <h1 class="text-primary">${tagline}</h1>
+        <h1 class="text-danger">${vote_average}</h1>
+      </div>
+      </li>`;
    }
    document.getElementById('lista').innerHTML = htmlContentToAppend;
    
