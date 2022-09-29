@@ -14,7 +14,7 @@ function showData(arr){
     console.log(name)
     generos += `${name}   `;
   }
-  htmlContentToShow += `<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">${title}</button>
+  htmlContentToShow += `<button class="btn btn-primary btn-item" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">${title}</button>
    <div>
    <h1 class="text-secondary">${tagline}</h1>
    <h1 class="text-danger">${vote_average}</h1>
