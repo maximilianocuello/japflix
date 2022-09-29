@@ -19,15 +19,27 @@ function showData(arr){
    <h1 class="text-secondary">${tagline}</h1>
    <h1 class="text-danger">${vote_average}</h1>
    </div>
-   <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+   <div class="offcanvas offcanvas-top" tabindex="1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
    <div class="offcanvas-header">
    <h5 class="offcanvas-title" id="offcanvasTopLabel">${title}</h5>
    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
    </div>
-   <div class="offcanvas-body">
+   <div class="offcanvas-body" style="z-index:1000;overflow:hidden;">
    <p>${overview}</p>
    <p>${generos}</p>
    <p></p>
+   <div class="btn-group" role="group" style="z-index:1000;">
+   <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true" style="position: right; z-index:1000; overflow:hidden;">
+     More
+   </button>
+   <ul class="dropdown-menu" style="z-index:1000; position:absolute;">
+     <li><a class="dropdown-item" href="#" style="z-index:1000; position:relative;">Year:</a></li>
+     <li><a class="dropdown-item" href="#" style="z-index:1000; position:relative;">Runtime:</a></li>
+     <li><a class="dropdown-item" href="#" style="z-index:1000; position:relative;">Budget:</a></li>
+     <li><a class="dropdown-item" href="#" style="z-index:1000; position:;">Revenue:</a></li>
+   </ul>
+ </div>
+   
    </div>
    </div>
     
