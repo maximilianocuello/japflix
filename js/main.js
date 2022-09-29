@@ -8,10 +8,10 @@ function showData(arr){
  /* ME DA ERROR AL INICIAR LA FUNCION ONCLIC EN LA DIV  */
  for (let peli of arr) {
   debugger
-  let {title, overview, genres, vote_average, tagline} = peli;
+  let {title, overview, genres, vote_average, tagline, badget, release_date,revenue, runtime,} = peli;
   let generos = ''
   for (let {name} of genres) {
-    console.log(name)
+    
     generos += `${name}   `;
   }
   htmlContentToShow += `<button class="btn btn-primary btn-item" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">${title}</button>
@@ -33,10 +33,10 @@ function showData(arr){
      More
    </button>
    <ul class="dropdown-menu" style="z-index:1000; position:absolute;">
-     <li><a class="dropdown-item" href="#" style="z-index:1000; position:relative;">Year:</a></li>
-     <li><a class="dropdown-item" href="#" style="z-index:1000; position:relative;">Runtime:</a></li>
-     <li><a class="dropdown-item" href="#" style="z-index:1000; position:relative;">Budget:</a></li>
-     <li><a class="dropdown-item" href="#" style="z-index:1000; position:;">Revenue:</a></li>
+     <li><a class="dropdown-item" href="#" style="z-index:1000; position:relative;">Year:  ${release_date} </a></li>
+     <li><a class="dropdown-item" href="#" style="z-index:1000; position:relative;">Runtime:  ${runtime} </a></li>
+     <li><a class="dropdown-item" href="#" style="z-index:1000; position:relative;">Budget: ${badget}  </a></li>
+     <li><a class="dropdown-item" href="#" style="z-index:1000; position:;">Revenue:   ${revenue}  </a></li>
    </ul>
  </div>
    
