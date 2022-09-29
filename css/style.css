@@ -26,3 +26,19 @@ main {
 .offcanvas-top{
     height: fit-content;
 }
+.btn-item{
+    background-color: rgb(90, 88, 88);
+    border-color:rgb(90, 88, 88) ;
+    text-align: left;
+}
+.btn-item:hover{
+    background-color: rgb(70, 69, 69);
+    border-color:rgb(70, 69, 69) ;
+}
+.text-secondary{
+    font-size: 30px;
+}
+
+.container{
+    width: 70%;
+}
