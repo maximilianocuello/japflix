@@ -8,10 +8,10 @@ function showData(arr){
  /* ME DA ERROR AL INICIAR LA FUNCION ONCLIC EN LA DIV  */
  for (let peli of arr) {
   debugger
-  let {title, overview, genres, vote_average, tagline, release_date, runtime, budget, revenue} = peli;
+  let {title, overview, genres, vote_average, tagline, budget, release_date,revenue, runtime} = peli;
   let generos = ''
   for (let {name} of genres) {
-    console.log(name)
+    
     generos += `${name}   `;
   }
   htmlContentToShow += `<button class="btn btn-primary btn-item" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">${title}</button>
@@ -39,7 +39,6 @@ function showData(arr){
      <li><a class="dropdown-item" href="#" style="z-index:1000; position:static;">Runtime: ${runtime}</a></li>
      <li><a class="dropdown-item" href="#" style="z-index:1000; position:static;">Budget: ${budget}</a></li>
      <li><a class="dropdown-item" href="#" style="z-index:1000; position:static;">Revenue: ${revenue}</a></li>
-   </ul>
  </div>
    
    </div>
