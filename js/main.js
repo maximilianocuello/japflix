@@ -16,7 +16,18 @@ function showData(arr){
   htmlContentToShow += `<button class="btn btn-primary btn-item" onclick="mostrarInfo(${id})" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">${title}</button>
    <div>
    <h1 class="text-secondary">${tagline}</h1>
-   <h1 class="text-danger">${vote_average}</h1>
+   `
+   for(let i = 0; i<5; i++){
+    debugger
+    if (i<(vote_average/2)) {
+
+   htmlContentToShow +=`<span class="fa fa-star checked"></span>`;
+  }
+   else{
+    htmlContentToShow +=`<span class="fa fa-star" style="color: black"></span>`
+    }
+  }
+   htmlContentToShow += `
    </div>
    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
    <div class="offcanvas-header">
