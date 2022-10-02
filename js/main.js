@@ -8,7 +8,7 @@ function showData(arr){
  /* ME DA ERROR AL INICIAR LA FUNCION ONCLIC EN LA DIV  */
  for (let peli of arr) {
   debugger
-  let {title, overview, genres, vote_average, tagline, badget, release_date,revenue, runtime,} = peli;
+  let {title, overview, genres, vote_average, tagline, budget, release_date,revenue, runtime} = peli;
   let generos = ''
   for (let {name} of genres) {
     
@@ -34,18 +34,20 @@ function showData(arr){
    <h5 class="offcanvas-title" id="offcanvasTopLabel">${title}</h5>
    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
    </div>
-   <div class="offcanvas-body" style="z-index:1000;overflow:hidden;">
+   <div style="overflow:hidden;margin-bottom;-5;margin-left:1%;">
    <p>${overview}</p>
-   <p>${generos}</p>
-   
-   <div class="btn-group" role="group" style="z-index:1000;">
-   <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true" style="position: right; z-index:1000; overflow:hidden;">
+   </div>
+    <hr>
+   <div style="display: flex; width: 100%;">
+   <p style="color:grey;margin-left:1%;">${generos}</p>
+   <div class="btn-group" role="group" style="width:10%;float:right;margin-left:75%; margin-bottom:1%;">
+   <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true" style=" float:right; overflow:hidden;">
      More
    </button>
-   <ul class="dropdown-menu" style="z-index:1000; position:absolute;">
-     <li><a class="dropdown-item" href="#" style="z-index:1000; position:relative;">Year:  ${release_date} </a></li>
+   <ul class="dropdown-menu">
+     <li><a class="dropdown-item" href="#" style="z-index:1000; position:static;">Year: ${release_date}</a></li>
      <li><a class="dropdown-item" href="#" style="z-index:1000; position:relative;">Runtime:  ${runtime} </a></li>
-     <li><a class="dropdown-item" href="#" style="z-index:1000; position:relative;">Budget: ${badget}  </a></li>
+     <li><a class="dropdown-item" href="#" style="z-index:1000; position:relative;">Budget: ${budget}  </a></li>
      <li><a class="dropdown-item" href="#" style="z-index:1000; position:;">Revenue:   ${revenue}  </a></li>
    </ul>
  </div>
