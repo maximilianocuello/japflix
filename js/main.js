@@ -8,58 +8,51 @@ function showData(arr){
  /* ME DA ERROR AL INICIAR LA FUNCION ONCLIC EN LA DIV  */
  for (let peli of arr) {
   debugger
-  let {title, overview, genres, vote_average, tagline, budget, release_date,revenue, runtime} = peli;
+  let {title, overview, genres, vote_average, tagline, budget, release_date,revenue, runtime,id} = peli;
   let generos = ''
   for (let {name} of genres) {
-    
     generos += `${name}   `;
   }
-  htmlContentToShow += `<button class="btn btn-primary btn-item" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop">${title}</button>
-   
-   <h1 class="text-secondary">${tagline}</h1><div>`
-   for(let i = 0; i<5; i++){
-    debugger
-    if (i<(vote_average/2)) {
-
-   htmlContentToShow +=`<span class="fa fa-star checked"></span>`;
-  }
-   else{
-    htmlContentToShow +=`<span class="fa fa-star" style="color: black"></span>`
-    }
-  }
-   htmlContentToShow += `
+  htmlContentToShow += `<button class="btn btn-primary btn-item" onclick="mostrarInfo(${id})" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">${title}</button>
+   <div>
+   <h1 class="text-secondary">${tagline}</h1>
+   <h1 class="text-danger">${vote_average}</h1>
    </div>
-   <div class="offcanvas offcanvas-top" tabindex="1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+   <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
    <div class="offcanvas-header">
-   <h5 class="offcanvas-title" id="offcanvasTopLabel">${title}</h5>
+   <h5 class="offcanvas-title" id="offcanvasTopLabel"></h5>
    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
    </div>
    <div style="overflow:hidden;margin-bottom;-5;margin-left:1%;">
-   <p>${overview}</p>
+   <p id="over"></p>
    </div>
     <hr>
    <div style="display: flex; width: 100%;">
-   <p style="color:grey;margin-left:1%;">${generos}</p>
+   <p style="color:grey;margin-left:1%;" id="gen">${generos}</p>
    <div class="btn-group" role="group" style="width:10%;float:right;margin-left:75%; margin-bottom:1%;">
    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true" style=" float:right; overflow:hidden;">
      More
    </button>
    <ul class="dropdown-menu">
-     <li><a class="dropdown-item" href="#" style="z-index:1000; position:static;">Year: ${release_date}</a></li>
-     <li><a class="dropdown-item" href="#" style="z-index:1000; position:relative;">Runtime:  ${runtime} </a></li>
-     <li><a class="dropdown-item" href="#" style="z-index:1000; position:relative;">Budget: ${budget}  </a></li>
-     <li><a class="dropdown-item" href="#" style="z-index:1000; position:;">Revenue:   ${revenue}  </a></li>
-   </ul>
+     <li><a class="dropdown-item" href="#" style="z-index:1000; position:static;" id="Year">Year: </a></li>
+     <li><a class="dropdown-item" href="#" style="z-index:1000; position:static;" id="Runtime">Runtime: </a></li>
+     <li><a class="dropdown-item" href="#" style="z-index:1000; position:static;" id="Budget">Budget: </a></li>
+     <li><a class="dropdown-item" href="#" style="z-index:1000; position:static;" id="Revenue">Revenue: </a></li>
  </div>
    
    </div>
+   
    </div>
+    
   
     `;
+    console.log(id);
  }
  document.getElementById('lista').innerHTML = htmlContentToShow;
-}
 
+ 
+ 
+}
 
 
 /*CARGANDO DATA  */
@@ -89,3 +82,22 @@ window.addEventListener('DOMContentLoaded', function loadScreen(){
     })
     showData(pelisFilter);
  })
+
+ function mostrarInfo(idp){
+    const peli1 = pelisFilter.find(({id})=>id === idp);
+    if(peli1){
+      console.log(peli1);
+      let generos2 = ''
+      let {genres} = peli1;
+      for (let {name} of genres) {
+        generos2 += `${name}   `;
+      }
+      document.getElementById('offcanvasTopLabel').innerHTML = peli1.title;
+      document.getElementById('over').innerHTML = peli1.overview;
+      document.getElementById('gen').innerHTML = generos2;
+      document.getElementById('Year').innerHTML = `Year: ${peli1.release_date}`;
+      document.getElementById('Runtime').innerHTML = `Runtime: ${peli1.runtime}`;
+      document.getElementById('Budget').innerHTML = `Budget: ${peli1.budget}`;
+      document.getElementById('Revenue').innerHTML = `Revenue: ${peli1.revenue}`;
+    }
+ }
